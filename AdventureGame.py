@@ -1,25 +1,37 @@
 #! /usr/bin/env python
 import wx
 
-class MazeFrame(wx.Frame):
+class Frame1(wx.Frame):
+	def __init__(self, parent):
+		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
 
-    def __init__(self, parent):
+		self.initPictureFile = wx.Image("1.png", wx.BITMAP_TYPE_ANY)
 
-        wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", size=(864,510))
+		self.initPictureBitmap = self.initPictureFile.ConvertToBitmap()
 
-        self.initPictureFile = wx.Image("1.png", wx.BITMAP_TYPE_ANY)
+		self.initPicture = wx.StaticBitmap(self, wx.ID_ANY, self.initPictureBitmap, pos=(5,5))
+        
+		self.panel = wx.Panel(self)
+		
+		self.btnstart = wx.Button(self.panel, label="Switch", pos=(1, 1))
+		self.btnstart.Bind(wx.EVT_BUTTON, self.Switch)
+		
+	def Switch(self, e):
+		self.Hide()
+		secondWindow = Frame2(self)
+		secondWindow.Show()
+		
+class Frame2(wx.Frame):
 
-        self.initPictureBitmap = self.initPictureFile.ConvertToBitmap()
+	def __init__(self, parent):
 
-        self.initPicture = wx.StaticBitmap(self, wx.ID_ANY, self.initPictureBitmap, pos=(5,5))
-
-        self.panel = wx.Panel(self)
+		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
 
 # ---------- Main Program Below ----------
 
 app = wx.App(False)
 
-initFrame = MazeFrame(None)
+initFrame = Frame1(None)
 
 initFrame.Show()
 
