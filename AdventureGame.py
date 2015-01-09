@@ -23,7 +23,7 @@ class Frame2(wx.Frame):
 
 	def __init__(self, parent):
 
-		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
+		wx.Frame.__init__(self, parent, wx.ID_ANY, "Inferno", pos=(150, 200), size=(864,510))
 		self.turnPictureFile = wx.Image("2.png", wx.BITMAP_TYPE_ANY)
 		self.turnPictureBitmap = self.turnPictureFile.ConvertToBitmap()
 		self.turnPicture = wx.StaticBitmap(self, wx.ID_ANY, self.turnPictureBitmap, pos=(5,5))
@@ -49,8 +49,8 @@ class Frame3(wx.Frame):
 
 	def __init__(self, parent):
 
-		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
-		self.dilemmaLFile = wx.Image("2.png", wx.BITMAP_TYPE_ANY)
+		wx.Frame.__init__(self, parent, wx.ID_ANY, "Void", pos=(150, 200), size=(864,510))
+		self.dilemmaLFile = wx.Image("3.png", wx.BITMAP_TYPE_ANY)
 		self.dilemmaLBitmap = self.dilemmaLFile.ConvertToBitmap()
 		self.dilemmaL = wx.StaticBitmap(self, wx.ID_ANY, self.dilemmaLBitmap, pos=(5,5))
 		self.panel = wx.Panel(self)
@@ -75,8 +75,8 @@ class Frame4(wx.Frame):
 
 	def __init__(self, parent):
 
-		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
-		self.dilemmaRFile = wx.Image("2.png", wx.BITMAP_TYPE_ANY)
+		wx.Frame.__init__(self, parent, wx.ID_ANY, "Twilight", pos=(150, 200), size=(864,510))
+		self.dilemmaRFile = wx.Image("4.png", wx.BITMAP_TYPE_ANY)
 		self.dilemmaRBitmap = self.dilemmaRFile.ConvertToBitmap()
 		self.dilemmaR = wx.StaticBitmap(self, wx.ID_ANY, self.dilemmaRBitmap, pos=(5,5))
 		self.panel = wx.Panel(self)
@@ -102,12 +102,32 @@ class Frame5(wx.Frame):
 	def __init__(self, parent):
 
 		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
-		self.keyFile = wx.Image("3.png", wx.BITMAP_TYPE_ANY)
+		self.keyFile = wx.Image("5.png", wx.BITMAP_TYPE_ANY)
 		self.keyBitmap = self.keyFile.ConvertToBitmap()
 		self.key = wx.StaticBitmap(self, wx.ID_ANY, self.keyBitmap, pos=(5,5))
 		self.panel = wx.Panel(self)
 		
-		btn = wx.Button(self, label="Pick it up", pos=(357,350), size=(150,50))
+		btn = wx.Button(self, label="Open it", pos=(357,350), size=(150,50))
+		btn.Bind(wx.EVT_BUTTON, self.OnBtn)
+		
+	def OnBtn(self, e):
+		self.Hide()
+		secondWindow = Frame7(self)
+		secondWindow.Show()
+		Frame6.Show(False)
+		Frame7.Show(True)
+		
+class Frame6(wx.Frame):
+
+	def __init__(self, parent):
+	
+		wx.Frame.__init__(self, parent, wx.ID_ANY, "Abyss", pos=(150, 200), size=(864,510))
+		self.darkFile = wx.Image("6.png", wx.BITMAP_TYPE_ANY)
+		self.darkBitmap = self.darkFile.ConvertToBitmap()
+		self.dark = wx.StaticBitmap(self, wx.ID_ANY, self.darkBitmap, pos=(5,5))
+		self.panel = wx.Panel(self)
+		
+		btn = wx.Button(self, label="Back to Inferno", pos=(357,250), size=(150,50))
 		btn.Bind(wx.EVT_BUTTON, self.OnBtn)
 		
 	def OnBtn(self, e):
@@ -115,7 +135,26 @@ class Frame5(wx.Frame):
 		secondWindow = Frame2(self)
 		secondWindow.Show()
 		
+class Frame7(wx.Frame):
 
+	def __init__(self, parent):
+	
+		wx.Frame.__init__(self, parent, wx.ID_ANY, "Abyss", pos=(150, 200), size=(864,510))
+		self.lightFile = wx.Image("7.png", wx.BITMAP_TYPE_ANY)
+		self.lightBitmap = self.lightFile.ConvertToBitmap()
+		self.light = wx.StaticBitmap(self, wx.ID_ANY, self.lightBitmap, pos=(5,5))
+		self.panel = wx.Panel(self)
+		
+		btn = wx.Button(self, label="Hope is there", pos=(357,250), size=(150,50))
+		btn.Bind(wx.EVT_BUTTON, self.OnBtn)
+		
+	def OnBtn(self, e):
+		self.Hide()
+		secondWindow = Frame2(self)
+		secondWindow.Show()
+		
+class Frame8(wx.Frame):
+		
 
 # ---------- Main Program Below ----------
 
