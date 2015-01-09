@@ -3,19 +3,19 @@ import wx
 
 class Frame1(wx.Frame):
 
+	DT = 0
+
 	def __init__(self, parent):
 	
 		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
-		
-		DT = 0
-		
+				
 		self.panel1 = wx.Panel(self, size=(864,510))
 		
 		self.initPictureFile = wx.Image("1.png", wx.BITMAP_TYPE_ANY)
 		self.initPictureBitmap = self.initPictureFile.ConvertToBitmap()
 		self.initPicture = wx.StaticBitmap(self.panel1, wx.ID_ANY, self.initPictureBitmap, pos=(5,5))
 		
-		text = wx.StaticText(self.panel, label = "ABANDON HOPE, ALL YE WHO ENTER HERE.", pos = (289, 100))
+		text = wx.StaticText(self.panel1, label = "ABANDON HOPE, ALL YE WHO ENTER HERE.", pos = (289, 100))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
@@ -29,11 +29,11 @@ class Frame1(wx.Frame):
 		self.turnPictureBitmap = self.turnPictureFile.ConvertToBitmap()
 		self.turnPicture = wx.StaticBitmap(self.panel2, wx.ID_ANY, self.turnPictureBitmap, pos=(5,5))
 		
-		text = wx.StaticText(self.panel, label = "YOU ARE LEADED TO INFERNO, LEFT HOPE HERE ONCE.", pos = (210, 100))
+		text = wx.StaticText(self.panel2, label = "YOU ARE LEADED TO INFERNO, LEFT HOPE HERE ONCE.", pos = (210, 100))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		text = wx.StaticText(self.panel, label = "Left...?", pos = (289, 150))
+		text = wx.StaticText(self.panel2, label = "Left...?", pos = (289, 150))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
@@ -50,7 +50,7 @@ class Frame1(wx.Frame):
 		self.dilemmaLBitmap = self.dilemmaLFile.ConvertToBitmap()
 		self.dilemmaL = wx.StaticBitmap(self.panel3, wx.ID_ANY, self.dilemmaLBitmap, pos=(5,5))
 		
-		text = wx.StaticText(self.panel, label = "THE DARKEST TIME IS WHEN YOU ARE TRAPPED INTO A DILEMMA... VOID IS COMING...", pos = (160, 100))
+		text = wx.StaticText(self.panel3, label = "THE DARKEST TIME IS WHEN YOU ARE TRAPPED INTO A DILEMMA... VOID IS COMING...", pos = (160, 100))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
@@ -67,11 +67,11 @@ class Frame1(wx.Frame):
 		self.dilemmaRBitmap = self.dilemmaRFile.ConvertToBitmap()
 		self.dilemmaR = wx.StaticBitmap(self.panel4, wx.ID_ANY, self.dilemmaRBitmap, pos=(5,5))
 
-		text = wx.StaticText(self.panel, label = "CHUCKLE, CHUCKLE...PANDORA IS LEADING...", pos = (250, 100))
+		text = wx.StaticText(self.panel4, label = "CHUCKLE, CHUCKLE...PANDORA IS LEADING...", pos = (250, 100))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		text = wx.StaticText(self.panel, label = "\"Is there any box?\"", pos = (350, 150))
+		text = wx.StaticText(self.panel4, label = "\"Is there any box?\"", pos = (350, 150))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 
@@ -88,7 +88,7 @@ class Frame1(wx.Frame):
 		self.keyBitmap = self.keyFile.ConvertToBitmap()
 		self.key = wx.StaticBitmap(self.panel5, wx.ID_ANY, self.keyBitmap, pos=(5,5))
 		
-		text = wx.StaticText(self.panel, label = "A box!!!", pos = (160, 100))
+		text = wx.StaticText(self.panel5, label = "A box!!!", pos = (160, 100))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
@@ -102,11 +102,11 @@ class Frame1(wx.Frame):
 		self.keyBitmap = self.keyFile.ConvertToBitmap()
 		self.key = wx.StaticBitmap(self.panel6, wx.ID_ANY, self.keyBitmap, pos=(5,5))
 		
-		text = wx.StaticText(self.panel, label = "PRESENT...PRESENT, PAST, TOMORROW", pos = (160, 100))
+		text = wx.StaticText(self.panel6, label = "PRESENT...PRESENT, PAST, TOMORROW", pos = (160, 100))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		text = wx.StaticText(self.panel, label = "Do I need a present...?", pos = (200, 150))
+		text = wx.StaticText(self.panel6, label = "Do I need a present...?", pos = (200, 150))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
@@ -185,8 +185,6 @@ class Frame1(wx.Frame):
 		self.DT += 1
 		self.panelDeath.Hide()
 		self.panel2.Show()
->>>>>>> panel
-
 # ---------- Main Program Below ----------
 
 app = wx.App(False)
