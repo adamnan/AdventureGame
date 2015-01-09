@@ -165,7 +165,7 @@ class Frame6(wx.Frame):
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		text = wx.StaticText(self.panel, label = "Do I need a present...?", pos = (160, 100))
+		text = wx.StaticText(self.panel, label = "Do I need a present...?", pos = (200, 150))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
