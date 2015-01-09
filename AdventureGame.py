@@ -12,7 +12,6 @@ class Frame1(wx.Frame):
 		self.initPictureBitmap = self.initPictureFile.ConvertToBitmap()
 		self.initPicture = wx.StaticBitmap(self.panel, wx.ID_ANY, self.initPictureBitmap, pos=(5,5))
 		
-		
 		text = wx.StaticText(self.panel, label = "ABANDON HOPE, ALL YE WHO ENTER HERE.", pos = (289, 100))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
@@ -35,6 +34,14 @@ class Frame2(wx.Frame):
 		self.turnPictureFile = wx.Image("2.png", wx.BITMAP_TYPE_ANY)
 		self.turnPictureBitmap = self.turnPictureFile.ConvertToBitmap()
 		self.turnPicture = wx.StaticBitmap(self.panel, wx.ID_ANY, self.turnPictureBitmap, pos=(5,5))
+		
+		text = wx.StaticText(self.panel, label = "YOU ARE LEADED TO INFERNO, LEFT HOPE HERE ONCE.", pos = (210, 100))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
+		
+		text = wx.StaticText(self.panel, label = "Left...?", pos = (289, 150))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
 		
 		btn1 = wx.Button(self.panel, label="Go Left", pos=(273,200), size=(70,50))
 		btn1.Bind(wx.EVT_BUTTON, self.OnBtn1)
@@ -63,10 +70,14 @@ class Frame3(wx.Frame):
 		self.dilemmaLBitmap = self.dilemmaLFile.ConvertToBitmap()
 		self.dilemmaL = wx.StaticBitmap(self.panel, wx.ID_ANY, self.dilemmaLBitmap, pos=(5,5))
 		
-		btn3 = wx.Button(self.panel, label="Go Left", pos=(273,200), size=(70,50))
+		text = wx.StaticText(self.panel, label = "THE DARKEST TIME IS WHEN YOU ARE TRAPPED INTO A DILEMMA... VOID IS COMING...", pos = (160, 100))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
+		
+		btn3 = wx.Button(self.panel, label="Go Left", pos=(303,200), size=(70,50))
 		btn3.Bind(wx.EVT_BUTTON, self.OnBtn3)
 		
-		btn4 = wx.Button(self.panel, label="Go Right", pos=(427,200), size=(70,50))
+		btn4 = wx.Button(self.panel, label="Go Right", pos=(507,200), size=(70,50))
 		btn4.Bind(wx.EVT_BUTTON, self.OnBtn4)
 		
 	def OnBtn3(self,e):
@@ -90,10 +101,18 @@ class Frame4(wx.Frame):
 		self.dilemmaRBitmap = self.dilemmaRFile.ConvertToBitmap()
 		self.dilemmaR = wx.StaticBitmap(self.panel, wx.ID_ANY, self.dilemmaRBitmap, pos=(5,5))
 		
+		text = wx.StaticText(self.panel, label = "CHUCKLE, CHUCKLE...PANDORA IS LEADING...", pos = (250, 100))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
+		
+		text = wx.StaticText(self.panel, label = "\"Is there any box?\"", pos = (350, 150))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
+		
 		btn5 = wx.Button(self.panel, label="Go Left", pos=(273,200), size=(70,50))
 		btn5.Bind(wx.EVT_BUTTON, self.OnBtn5)
 		
-		btn6 = wx.Button(self.panel, label="Go Right", pos=(427,200), size=(70,50))
+		btn6 = wx.Button(self.panel, label="Go Right", pos=(457,200), size=(70,50))
 		btn6.Bind(wx.EVT_BUTTON, self.OnBtn6)
 		
 	def OnBtn5(self,e):
@@ -117,7 +136,11 @@ class Frame5(wx.Frame):
 		self.keyBitmap = self.keyFile.ConvertToBitmap()
 		self.key = wx.StaticBitmap(self.panel, wx.ID_ANY, self.keyBitmap, pos=(5,5))
 		
-		btn = wx.Button(self.panel, label="Open it", pos=(357,350), size=(150,50))
+		text = wx.StaticText(self.panel, label = "A box!!!", pos = (160, 100))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
+		
+		btn = wx.Button(self.panel, label="Open it", pos=(327,350), size=(150,50))
 		btn.Bind(wx.EVT_BUTTON, self.OnBtn)
 		
 	def OnBtn(self, e):
@@ -137,6 +160,14 @@ class Frame6(wx.Frame):
 		self.darkFile = wx.Image("6.png", wx.BITMAP_TYPE_ANY)
 		self.darkBitmap = self.darkFile.ConvertToBitmap()
 		self.dark = wx.StaticBitmap(self.panel, wx.ID_ANY, self.darkBitmap, pos=(5,5))
+		
+		text = wx.StaticText(self.panel, label = "PRESENT...PRESENT, PAST, TOMORROW", pos = (160, 100))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
+		
+		text = wx.StaticText(self.panel, label = "Do I need a present...?", pos = (160, 100))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
 		
 		btn = wx.Button(self.panel, label="Back to Inferno", pos=(357,250), size=(150,50))
 		btn.Bind(wx.EVT_BUTTON, self.OnBtn)
