@@ -3,8 +3,6 @@ import wx
 
 class Frame1(wx.Frame):
 
-	DT = 0
-
 	def __init__(self, parent):
 	
 		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
@@ -54,10 +52,10 @@ class Frame1(wx.Frame):
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		btn3 = wx.Button(self.panel3, label="Go Left", pos=(273,200), size=(70,50))
+		btn3 = wx.Button(self.panel3, label="Go Left", pos=(303,200), size=(70,50))
 		btn3.Bind(wx.EVT_BUTTON, self.OnBtn3)
 		
-		btn4 = wx.Button(self.panel3, label="Go Right", pos=(427,200), size=(70,50))
+		btn4 = wx.Button(self.panel3, label="Go Right", pos=(517,200), size=(70,50))
 		btn4.Bind(wx.EVT_BUTTON, self.OnBtn4)
 
 		
@@ -92,7 +90,7 @@ class Frame1(wx.Frame):
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		btn7 = wx.Button(self.panel5, label="Pick it up", pos=(357,350), size=(150,50))
+		btn7 = wx.Button(self.panel5, label="Open it", pos=(357,350), size=(150,50))
 		btn7.Bind(wx.EVT_BUTTON, self.OnBtn7)
 		
 		
@@ -158,12 +156,8 @@ class Frame1(wx.Frame):
 		self.panel6.Show()
 	
 	def OnBtn5(self,e):
-		if self.DT > 1:		
-			self.panel4.Hide()
-			self.panel5.Show()
-		else:
-			self.panel4.Hide()
-			self.panelDeath.Show()
+		self.panel4.Hide()
+		self.panelDeath.Show()
 		
 	def OnBtn6(self, e):
 		self.panel4.Hide()
@@ -182,7 +176,6 @@ class Frame1(wx.Frame):
 		self.panel8.Show()		
 
 	def OnBtnDeath(self, e):
-		self.DT += 1
 		self.panelDeath.Hide()
 		self.panel2.Show()
 # ---------- Main Program Below ----------
