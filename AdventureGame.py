@@ -1,13 +1,13 @@
 #! /usr/bin/env python
 import wx
 
-DT = 0
-
 class Frame1(wx.Frame):
 
 	def __init__(self, parent):
 	
 		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
+		
+		DT = 0
 		
 		self.panel1 = wx.Panel(self, size=(864,510))
 		
@@ -122,7 +122,7 @@ class Frame1(wx.Frame):
 		self.panel6.Show()
 	
 	def OnBtn5(self,e):
-		if DT > 1:		
+		if self.DT > 1:		
 			self.panel4.Hide()
 			self.panel5.Show()
 		else:
@@ -146,8 +146,7 @@ class Frame1(wx.Frame):
 		self.panel8.Show()		
 
 	def OnBtnDeath(self, e):
-		global DT
-		DT += 1
+		self.DT += 1
 		self.panelDeath.Hide()
 		self.panel2.Show()
 
