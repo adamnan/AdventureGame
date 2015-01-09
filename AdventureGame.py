@@ -3,6 +3,8 @@ import wx
 
 class Frame1(wx.Frame):
 
+	check = 0
+
 	def __init__(self, parent):
 	
 		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
@@ -90,7 +92,7 @@ class Frame1(wx.Frame):
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		btn7 = wx.Button(self.panel5, label="Open it", pos=(357,350), size=(150,50))
+		btn7 = wx.Button(self.panel5, label="Open it", pos=(327,350), size=(150,50))
 		btn7.Bind(wx.EVT_BUTTON, self.OnBtn7)
 		
 		
@@ -124,8 +126,12 @@ class Frame1(wx.Frame):
 		
 		self.panelDeath = wx.Panel(self, size=(864,510))
 		
-		btn = wx.Button(self.panelDeath, label="Respawn", pos=(357,350), size=(150,50))
-		btn.Bind(wx.EVT_BUTTON, self.OnBtnDeath)
+		self.deathFile = wx.Image("death.png", wx.BITMAP_TYPE_ANY)
+		self.deathBitmap = self.deathFile.ConvertToBitmap()
+		self.death = wx.StaticBitmap(self.panelDeath, wx.ID_ANY, self.deathBitmap, pos=(5,5))
+		
+		btnDeath = wx.Button(self.panelDeath, label="Respawn", pos=(357,350), size=(150,50)
+		btnDeath.Bind(wx.EVT_BUTTON, self.OnBtnDeath)
 					
 		self.panel2.Hide()
 		self.panel3.Hide()
@@ -152,12 +158,16 @@ class Frame1(wx.Frame):
 		self.panelDeath.Show()
 		
 	def OnBtn4(self, e):
-		self.panel3.Hide()
-		self.panel6.Show()
+		if self.check == 0:
+			self.panel3.Hide()
+			self.panel6.Show()
+		elif self.check == 1:
+			self.panel3.Hide()
+			self.panel7.Show()
 	
 	def OnBtn5(self,e):
 		self.panel4.Hide()
-		self.panelDeath.Show()
+		self.panel5.Show()
 		
 	def OnBtn6(self, e):
 		self.panel4.Hide()
@@ -165,7 +175,8 @@ class Frame1(wx.Frame):
 	
 	def OnBtn7(self, e):
 		self.panel5.Hide()
-		self.panel7.Show()
+		self.panel2.Show()
+		self.check = 1
 		
 	def OnBtn8(self, e):
 		self.panel6.Hide()
@@ -173,11 +184,11 @@ class Frame1(wx.Frame):
 		
 	def OnBtn9(self, e):
 		self.panel7.Hide()
-		self.panel8.Show()		
-
+		self.panel8.Show()
+		
 	def OnBtnDeath(self, e):
-		self.panelDeath.Hide()
-		self.panel2.Show()
+		self.panel2.Show()		
+
 # ---------- Main Program Below ----------
 
 app = wx.App(False)
