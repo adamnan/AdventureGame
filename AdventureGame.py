@@ -9,8 +9,8 @@ class Frame1(wx.Frame):
 		
 		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
 		
-		sound = wx.Sound('sound.mp3')
-		self.sound.Play(wx.SOUND_SYNC)
+		self.sound = wx.Sound('soundr.mp3')
+		self.sound.Play(wx.SOUND_ASYNC)
 		
 		self.panel1 = wx.Panel(self, size=(864,510))
 		
