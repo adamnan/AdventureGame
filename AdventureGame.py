@@ -6,9 +6,12 @@ class Frame1(wx.Frame):
 	check = 0
 
 	def __init__(self, parent):
-	
+		
 		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
-				
+		
+		sound = wx.Sound('sound.mp3')
+		self.sound.Play(wx.SOUND_SYNC)
+		
 		self.panel1 = wx.Panel(self, size=(864,510))
 		
 		self.initPictureFile = wx.Image("1.png", wx.BITMAP_TYPE_ANY)
@@ -33,7 +36,7 @@ class Frame1(wx.Frame):
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		text = wx.StaticText(self.panel2, label = "Left...?", pos = (289, 150))
+		text = wx.StaticText(self.panel2, label = "Left...?", pos = (289, 400))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
@@ -71,7 +74,7 @@ class Frame1(wx.Frame):
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		text = wx.StaticText(self.panel4, label = "\"Is there any box?\"", pos = (350, 150))
+		text = wx.StaticText(self.panel4, label = "\"Is there any box?\"", pos = (350, 400))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 
@@ -126,11 +129,11 @@ class Frame1(wx.Frame):
 		
 		self.panelDeath = wx.Panel(self, size=(864,510))
 		
-		self.deathFile = wx.Image("death.png", wx.BITMAP_TYPE_ANY)
+		self.deathFile = wx.Image("6.png", wx.BITMAP_TYPE_ANY)
 		self.deathBitmap = self.deathFile.ConvertToBitmap()
 		self.death = wx.StaticBitmap(self.panelDeath, wx.ID_ANY, self.deathBitmap, pos=(5,5))
 		
-		btnDeath = wx.Button(self.panelDeath, label="Respawn", pos=(357,350), size=(150,50)
+		btnDeath = wx.Button(self.panelDeath, label="Respawn", pos=(357,350), size=(150,50))
 		btnDeath.Bind(wx.EVT_BUTTON, self.OnBtnDeath)
 					
 		self.panel2.Hide()
@@ -144,6 +147,7 @@ class Frame1(wx.Frame):
 	def OnBtn(self, e):
 		self.panel1.Hide()
 		self.panel2.Show()
+		
 	
 	def OnBtn1(self, e):
 		self.panel2.Hide()
@@ -187,6 +191,7 @@ class Frame1(wx.Frame):
 		self.panel8.Show()
 		
 	def OnBtnDeath(self, e):
+		self.panelDeath.Hide()
 		self.panel2.Show()		
 
 # ---------- Main Program Below ----------
