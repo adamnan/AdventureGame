@@ -109,7 +109,7 @@ class Frame1(wx.Frame):
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
-		text = wx.StaticText(self.panel6, label = "Do I need a present...?", pos = (200, 150))
+		text = wx.StaticText(self.panel6, label = "Do I need a present...?", pos = (150, 400))
 		text.SetForegroundColour((255,255,255))
 		text.SetBackgroundColour((0,0,0))
 		
@@ -127,11 +127,40 @@ class Frame1(wx.Frame):
 		btn9.Bind(wx.EVT_BUTTON, self.OnBtn9)
 		
 		
+		self.panelEnd = wx.Panel(self, size=(864,510))
+		
+		self.keyFile = wx.Image("end.png", wx.BITMAP_TYPE_ANY)
+		self.keyBitmap = self.keyFile.ConvertToBitmap()
+		self.key = wx.StaticBitmap(self.panelEnd, wx.ID_ANY, self.keyBitmap, pos=(5,5))
+		
+		text = wx.StaticText(self.panelEnd, label = "YOU FOUND ENLIGHTMENT, BUT WHAT NEXT......", pos = (250, 100))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
+		
+		btnEnd = wx.Button(self.panelEnd, label="To Be Continued...", pos=(275,350), size=(300,50))
+		btnEnd.Bind(wx.EVT_BUTTON, self.OnBtnEnd)
+		
+		
+		self.panelThank= wx.Panel(self, size=(864,510))
+		
+		self.keyFile = wx.Image("Thank.jpg", wx.BITMAP_TYPE_ANY)
+		self.keyBitmap = self.keyFile.ConvertToBitmap()
+		self.key = wx.StaticBitmap(self.panelThank, wx.ID_ANY, self.keyBitmap, pos=(5,5))
+		
+		text = wx.StaticText(self.panelThank, label = "Staff: Adam Tommy\nMusic: Limbo\nPictures: Minecraft", pos = (350, 300))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
+		
+		
 		self.panelDeath = wx.Panel(self, size=(864,510))
 		
 		self.deathFile = wx.Image("6.png", wx.BITMAP_TYPE_ANY)
 		self.deathBitmap = self.deathFile.ConvertToBitmap()
 		self.death = wx.StaticBitmap(self.panelDeath, wx.ID_ANY, self.deathBitmap, pos=(5,5))
+		
+		text = wx.StaticText(self.panelDeath, label = "YOU DIED, BUT YOU ARE NOT......", pos = (320, 100))
+		text.SetForegroundColour((255,255,255))
+		text.SetBackgroundColour((0,0,0))
 		
 		btnDeath = wx.Button(self.panelDeath, label="Respawn", pos=(357,350), size=(150,50))
 		btnDeath.Bind(wx.EVT_BUTTON, self.OnBtnDeath)
@@ -142,14 +171,15 @@ class Frame1(wx.Frame):
 		self.panel5.Hide()
 		self.panel6.Hide()
 		self.panel7.Hide()
+		self.panelEnd.Hide()
 		self.panelDeath.Hide()
+		self.panelThank.Hide()
 		
 	def OnBtn(self, e):
 		self.panel1.Hide()
 		self.panel2.Show()
 		self.Sound.Play(wx.SOUND_ASYNC)
 		
-	
 	def OnBtn1(self, e):
 		self.panel2.Hide()
 		self.panel3.Show()
@@ -198,8 +228,13 @@ class Frame1(wx.Frame):
 		
 	def OnBtn9(self, e):
 		self.panel7.Hide()
-		self.panel8.Show()
+		self.panelEnd.Show()
 		self.Sound.Play(wx.SOUND_ASYNC)
+		
+	def OnBtnEnd(self, e):
+		self.panelEnd.Hide()
+		self.panelThank.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)	
 		
 	def OnBtnDeath(self, e):
 		self.panelDeath.Hide()
