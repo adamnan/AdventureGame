@@ -10,7 +10,7 @@ class Frame1(wx.Frame):
 		wx.Frame.__init__(self, parent, wx.ID_ANY, "Maze Runner", pos=(150, 200), size=(864,510))
 		
 		self.Sound = wx.Sound('sound.wav')
-		self.Sound.Play(wx.SOUND_SYNC)
+		self.Sound.Play(wx.SOUND_ASYNC)
 		
 		self.panel1 = wx.Panel(self, size=(864,510))
 		
@@ -147,52 +147,64 @@ class Frame1(wx.Frame):
 	def OnBtn(self, e):
 		self.panel1.Hide()
 		self.panel2.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)
 		
 	
 	def OnBtn1(self, e):
 		self.panel2.Hide()
 		self.panel3.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)
 		
 	def OnBtn2(self, e):
 		self.panel2.Hide()
 		self.panel4.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)
 	
 	def OnBtn3(self,e):
 		self.panel3.Hide()
 		self.panelDeath.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)
 		
 	def OnBtn4(self, e):
 		if self.check == 0:
 			self.panel3.Hide()
 			self.panel6.Show()
+			self.Sound.Play(wx.SOUND_ASYNC)
 		elif self.check == 1:
 			self.panel3.Hide()
 			self.panel7.Show()
+			self.Sound.Play(wx.SOUND_ASYNC)
 	
 	def OnBtn5(self,e):
 		self.panel4.Hide()
 		self.panel5.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)
 		
 	def OnBtn6(self, e):
 		self.panel4.Hide()
 		self.panelDeath.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)
 	
 	def OnBtn7(self, e):
 		self.panel5.Hide()
 		self.panel2.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)
 		self.check = 1
 		
 	def OnBtn8(self, e):
 		self.panel6.Hide()
 		self.panel2.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)
 		
 	def OnBtn9(self, e):
 		self.panel7.Hide()
 		self.panel8.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)
 		
 	def OnBtnDeath(self, e):
 		self.panelDeath.Hide()
-		self.panel2.Show()		
+		self.panel2.Show()
+		self.Sound.Play(wx.SOUND_ASYNC)		
 
 # ---------- Main Program Below ----------
 
